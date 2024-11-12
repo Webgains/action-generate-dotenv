@@ -95,7 +95,7 @@ runs:
       working-directory: ${{ inputs.cdk_working_directory }}
       if: ${{ inputs.stack_secrets != '' }}
       run: |
-        echo '${{ inpus.stack_secrets }}' | jq -r 'to_entries |
+        echo '${{ inputs.stack_secrets }}' | jq -r 'to_entries |
             .[] | 
             ["s|",.key,"=.*|",.key, "=", .value, "|"] | 
             add' | 
